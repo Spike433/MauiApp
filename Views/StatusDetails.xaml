@@ -28,7 +28,7 @@
             </StackLayout>
             <Label Text="CELSIUS" Margin="40,-30,0,0" TextColor="White" FontSize="23" HorizontalOptions="Center"/>
         </StackLayout>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3" Margin="0,300,0,0">
             <Grid WidthRequest="320" ColumnSpacing="10" RowSpacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
