@@ -2,31 +2,28 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AirApp.Views.StatusDetails"
-             Title="{Binding status.DeviceEpoch, StringFormat='Details {0:HH\\:mm, dd.MM.yy}'}">
+             Title="{Binding status.DeviceEpoch, StringFormat='[{0:HH\\:mm dd.MM.yy}]'}">
     <ContentPage.ToolbarItems>        
         <ToolbarItem Text="Additional Info" Priority="0" Order="Secondary" />
         <ToolbarItem Text="------------------------" Priority="0" Order="Secondary" />
         <ToolbarItem Text="{Binding status.SerialNumber,StringFormat='Serial Number: {0}'}" Priority="0" Order="Secondary"/>
         <ToolbarItem Text="{Binding status.ConfigurationNumber, StringFormat='Configuration: {0}'}" Priority="0" Order="Secondary"/>
+        <ToolbarItem Text="{Binding status.BatteryLevel, StringFormat='Battery Level: {0}[V]'}" Priority="0" Order="Secondary"/>
     </ContentPage.ToolbarItems>
-    
-    <Grid Padding="10" RowSpacing="20">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-
-        <!-- Absolute Air Pressure -->
+            <BoxView Grid.RowSpan="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Image x:Name="bgImg" Aspect="AspectFill" Grid.RowSpan="2"  Opacity="0.7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            
+        <!-- Absolute Air Pressure --><!--
         <Label Text="Air Pressure:"
                    FontAttributes="Bold"
                    FontSize="Medium"                   
@@ -36,7 +33,7 @@
                    HorizontalOptions="Center"
                    Grid.Row="2" Grid.Column="1" />
 
-        <!-- Air Humidity -->
+        --><!-- Air Humidity --><!--
         <Label Text="Air Humidity:"
                    FontAttributes="Bold"
                    FontSize="Medium"                   
@@ -46,7 +43,7 @@
                     HorizontalOptions="Center"
                    Grid.Row="4" Grid.Column="1" />
 
-        <!-- Air Temperature -->
+        --><!-- Air Temperature --><!--
         <Label Text="Air Temperature:"
                    FontAttributes="Bold"
                    FontSize="Medium"               
@@ -55,18 +52,9 @@
                    FontSize="Medium"         
                    HorizontalOptions="Center"
                    Grid.Row="5" Grid.Column="1" />       
+        
 
-        <!-- Battery Level -->
-        <Label Text="Battery Level:"
-                   FontAttributes="Bold"
-                   FontSize="Medium"                                  
-                   Grid.Row="6" Grid.Column="0" />
-        <Label Text="{Binding status.BatteryLevel}"
-                   FontSize="Medium"
-                   HorizontalOptions="Center"
-                   Grid.Row="6" Grid.Column="1" />
-
-        <!-- Indoor Air Quality -->
+        --><!-- Indoor Air Quality --><!--
         <Label Text="Indoor Air Quality:"
                    FontAttributes="Bold"
                    FontSize="Medium"                    
@@ -74,6 +62,6 @@
         <Label Text="{Binding FormattedIndoorAirQuality}"
                    FontSize="Medium"                    
                    HorizontalOptions="Center"
-                   Grid.Row="7" Grid.Column="1" />
+                   Grid.Row="7" Grid.Column="1" />-->
     </Grid>
 </ContentPage>

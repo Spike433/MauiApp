@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AirApp.Views.EnvironmentStatusPage"
              Title="Statuses">
-
-
+      
+    
     <Grid>
         <!-- Column definitions for the two columns -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
-        <ActivityIndicator x:Name="loadingIndicator" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
+        
         <!-- Label for "Timestamp" in the first column -->
         <Label Text="Timestamp"
            FontAttributes="Bold"
+               
            FontSize="Default"
            Margin="0,4,0,0"
            FontFamily="Open-Sans"
@@ -29,6 +29,11 @@
            FontFamily="Open-Sans"
            HorizontalOptions="Center"
            Grid.Column="1" />
+
+        <!-- Background Image -->
+
+        <Image x:Name="bgImg" Aspect="AspectFill" Grid.ColumnSpan="2"  Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <Image Aspect="AspectFill" Grid.ColumnSpan="2"   Opacity="0.8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
         <!-- CollectionView below the labels -->
         <CollectionView x:Name="environmentStatusesCollection"
