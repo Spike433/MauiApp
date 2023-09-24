@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirApp.Views.EnvironmentStatusPage"
+             Title="Statuses">
+
+
+    <Grid>
+        <!-- Column definitions for the two columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ActivityIndicator x:Name="loadingIndicator" IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
+        <!-- Label for "Timestamp" in the first column -->
+        <Label Text="Timestamp"
+           FontAttributes="Bold"
+           FontSize="Default"
+           Margin="0,4,0,0"
+           FontFamily="Open-Sans"
+           HorizontalOptions="Center" />
+
+        <!-- Label for "Air Humidity" in the second column -->
+        <Label Text="Air Humidity"
+           FontAttributes="Bold"
+           FontSize="Default"
+           Margin="0,4,0,0"
+           FontFamily="Open-Sans"
+           HorizontalOptions="Center"
+           Grid.Column="1" />
+
+        <!-- CollectionView below the labels -->
+        <CollectionView x:Name="environmentStatusesCollection"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2" 
+            ItemsSource="{Binding EnvironmentStatuses}"
+                    Margin="0,20,0,0"
+                    SelectionMode="Single"
+                    SelectionChanged="environmentCollection_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    
+                    <Grid Margin="60,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Timestamp -->
+                        <Label Text="{Binding DeviceEpoch, StringFormat='{}{0:dd.MM.yy HH\\:mm}'}"
+                           Margin="0,0,0,0"
+                           FontSize="Default"
+                           FontAttributes="Italic"
+                           FontFamily="Open-Sans"
+                           Grid.Column="0" />
+
+                        <!-- Air Humidity -->
+                        <Label Text="{Binding AirHumidity}"
+                           FontSize="Default"
+                           Margin="50,0,0,0"
+                           FontAttributes="Italic"
+                           FontFamily="Open-Sans"
+                           Grid.Column="1" />
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"></VisualState>
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Silver" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+
+</ContentPage>

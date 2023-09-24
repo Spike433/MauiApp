@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirApp.Views.StatusDetails"
+             Title="{Binding status.DeviceEpoch, StringFormat='Details {0:HH\\:mm, dd.MM.yy}'}">
+    <ContentPage.ToolbarItems>        
+        <ToolbarItem Text="Additional Info" Priority="0" Order="Secondary" />
+        <ToolbarItem Text="------------------------" Priority="0" Order="Secondary" />
+        <ToolbarItem Text="{Binding status.SerialNumber,StringFormat='Serial Number: {0}'}" Priority="0" Order="Secondary"/>
+        <ToolbarItem Text="{Binding status.ConfigurationNumber, StringFormat='Configuration: {0}'}" Priority="0" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid Padding="10" RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Absolute Air Pressure -->
+        <Label Text="Air Pressure:"
+                   FontAttributes="Bold"
+                   FontSize="Medium"                   
+                   Grid.Row="2" Grid.Column="0" />
+        <Label Text="{Binding status.AbsoluteAirPressure}"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"
+                   Grid.Row="2" Grid.Column="1" />
+
+        <!-- Air Humidity -->
+        <Label Text="Air Humidity:"
+                   FontAttributes="Bold"
+                   FontSize="Medium"                   
+                   Grid.Row="4" Grid.Column="0" />
+        <Label Text="{Binding status.AirHumidity}"
+                   FontSize="Medium"     
+                    HorizontalOptions="Center"
+                   Grid.Row="4" Grid.Column="1" />
+
+        <!-- Air Temperature -->
+        <Label Text="Air Temperature:"
+                   FontAttributes="Bold"
+                   FontSize="Medium"               
+                   Grid.Row="5" Grid.Column="0" />
+        <Label Text="{Binding status.AirTemperature}"
+                   FontSize="Medium"         
+                   HorizontalOptions="Center"
+                   Grid.Row="5" Grid.Column="1" />       
+
+        <!-- Battery Level -->
+        <Label Text="Battery Level:"
+                   FontAttributes="Bold"
+                   FontSize="Medium"                                  
+                   Grid.Row="6" Grid.Column="0" />
+        <Label Text="{Binding status.BatteryLevel}"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"
+                   Grid.Row="6" Grid.Column="1" />
+
+        <!-- Indoor Air Quality -->
+        <Label Text="Indoor Air Quality:"
+                   FontAttributes="Bold"
+                   FontSize="Medium"                    
+                   Grid.Row="7" Grid.Column="0" />
+        <Label Text="{Binding FormattedIndoorAirQuality}"
+                   FontSize="Medium"                    
+                   HorizontalOptions="Center"
+                   Grid.Row="7" Grid.Column="1" />
+    </Grid>
+</ContentPage>
