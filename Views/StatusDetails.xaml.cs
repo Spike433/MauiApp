@@ -13,7 +13,13 @@ public partial class StatusDetails : ContentPage, IQueryAttributable, INotifyPro
 	{
 		InitializeComponent();
 		BindingContext = this;
-	}
+
+        Random random = new Random();
+        int randomNumber = random.Next(20, 26); // Generates numbers from 17 to 25 (inclusive)
+
+        // Set the generated number as the text of the Label
+        cloudinessTxt.Text = randomNumber.ToString() + "%";
+    }
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {

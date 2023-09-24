@@ -20,48 +20,53 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-            <BoxView Grid.RowSpan="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            <Image x:Name="bgImg" Aspect="AspectFill" Grid.RowSpan="2"  Opacity="0.7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            
-        <!-- Absolute Air Pressure --><!--
-        <Label Text="Air Pressure:"
-                   FontAttributes="Bold"
-                   FontSize="Medium"                   
-                   Grid.Row="2" Grid.Column="0" />
-        <Label Text="{Binding status.AbsoluteAirPressure}"
-                   FontSize="Medium"
-                   HorizontalOptions="Center"
-                   Grid.Row="2" Grid.Column="1" />
-
-        --><!-- Air Humidity --><!--
-        <Label Text="Air Humidity:"
-                   FontAttributes="Bold"
-                   FontSize="Medium"                   
-                   Grid.Row="4" Grid.Column="0" />
-        <Label Text="{Binding status.AirHumidity}"
-                   FontSize="Medium"     
-                    HorizontalOptions="Center"
-                   Grid.Row="4" Grid.Column="1" />
-
-        --><!-- Air Temperature --><!--
-        <Label Text="Air Temperature:"
-                   FontAttributes="Bold"
-                   FontSize="Medium"               
-                   Grid.Row="5" Grid.Column="0" />
-        <Label Text="{Binding status.AirTemperature}"
-                   FontSize="Medium"         
-                   HorizontalOptions="Center"
-                   Grid.Row="5" Grid.Column="1" />       
-        
-
-        --><!-- Indoor Air Quality --><!--
-        <Label Text="Indoor Air Quality:"
-                   FontAttributes="Bold"
-                   FontSize="Medium"                    
-                   Grid.Row="7" Grid.Column="0" />
-        <Label Text="{Binding FormattedIndoorAirQuality}"
-                   FontSize="Medium"                    
-                   HorizontalOptions="Center"
-                   Grid.Row="7" Grid.Column="1" />-->
+        <Image x:Name="bgImg" Aspect="AspectFill" Grid.RowSpan="2"  Source="bg.png" Opacity="0.7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                <Label x:Name="temperatureTxt" Text="{Binding status.AirTemperature}" TextColor="White" FontSize="110" HorizontalOptions="Center"/>
+                <Label Text="°" TextColor="White" FontSize="120" HorizontalOptions="Center"/>
+            </StackLayout>
+            <Label Text="CELSIUS" Margin="40,-30,0,0" TextColor="White" FontSize="23" HorizontalOptions="Center"/>
+        </StackLayout>
+        <Grid Grid.Row="2">
+            <Grid WidthRequest="320" ColumnSpacing="10" RowSpacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Image Source="humidity.png" HeightRequest="50" HorizontalOptions="Center"/>
+                    <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding status.AirHumidity, StringFormat='{0}%'}" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="Humidity" TextColor="White" Margin="0,-5,0,0" FontSize="12" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                    <Image Source="wind.png" HeightRequest="40" HorizontalOptions="Center"/>
+                    <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding FormattedIndoorAirQuality}" TextColor="White" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical" Spacing="10">
+                    <Image Source="gauge.png" HeightRequest="50" HorizontalOptions="Center"/>
+                    <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding status.AbsoluteAirPressure, StringFormat='{0} hPa'}" TextColor="White" FontSize="1" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="Pressure" TextColor="White" Margin="0,-5,0,0" FontSize="12" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                    <Image Source="cloudiness.png" HeightRequest="40" HorizontalOptions="Center"/>
+                    <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                        <Label x:Name="cloudinessTxt" Text="24%" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="Cloudiness" TextColor="White" Margin="0,-5,0,0" FontSize="12" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>       
     </Grid>
 </ContentPage>

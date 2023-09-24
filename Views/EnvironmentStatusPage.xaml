@@ -31,9 +31,9 @@
            Grid.Column="1" />
 
         <!-- Background Image -->
+        <Image x:Name="bgImg" Aspect="AspectFill" Grid.ColumnSpan="2" Source="bg.png"  Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <Image Aspect="AspectFill" Grid.ColumnSpan="2" Source="overlay.png" Opacity="0.7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
-        <Image x:Name="bgImg" Aspect="AspectFill" Grid.ColumnSpan="2"  Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-        <Image Aspect="AspectFill" Grid.ColumnSpan="2"   Opacity="0.8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
         <!-- CollectionView below the labels -->
         <CollectionView x:Name="environmentStatusesCollection"

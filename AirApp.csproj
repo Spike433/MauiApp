@@ -46,7 +46,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\no.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\bg.png" />
+	  <None Remove="Resources\Images\no.png" />
 	  <None Remove="Resources\Images\wind.png" />
 	</ItemGroup>
 
