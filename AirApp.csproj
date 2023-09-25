@@ -52,6 +52,8 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\bg.png" />
 	  <None Remove="Resources\Images\no.png" />
+	  <None Remove="Resources\Images\off.jpg" />
+	  <None Remove="Resources\Images\pollution.png" />
 	  <None Remove="Resources\Images\wind.png" />
 	</ItemGroup>
 

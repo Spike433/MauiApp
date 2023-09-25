@@ -48,8 +48,7 @@
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    
+                <DataTemplate>                    
                     <Grid Margin="60,20,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
