@@ -51,9 +51,13 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\bg.png" />
+	  <None Remove="Resources\Images\cloud.jpg" />
 	  <None Remove="Resources\Images\no.png" />
 	  <None Remove="Resources\Images\off.jpg" />
 	  <None Remove="Resources\Images\pollution.png" />
+	  <None Remove="Resources\Images\tab_home.svg" />
+	  <None Remove="Resources\Images\tab_settings.svg" />
+	  <None Remove="Resources\Images\weights.png" />
 	  <None Remove="Resources\Images\wind.png" />
 	</ItemGroup>
 
@@ -63,6 +67,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\EnvironmentStatusPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\StatusDetails.xaml">

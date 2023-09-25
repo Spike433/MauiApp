@@ -7,9 +7,14 @@
     xmlns:views="clr-namespace:AirApp.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Statuses"
-        ContentTemplate="{DataTemplate views:EnvironmentStatusPage}"
-        />
+    <TabBar>
+        <Tab Title="Home" Icon="tab_home.svg">  
+            <ShellContent Title="Statuses" ContentTemplate="{DataTemplate views:EnvironmentStatusPage}"/>
+        </Tab>
+        <Tab Title="Settings" Icon="tab_settings.svg">
+            <ShellContent Title="Statuses" ContentTemplate="{DataTemplate views:Settings}"/>
+        </Tab>
+    </TabBar>
+
 
 </Shell>

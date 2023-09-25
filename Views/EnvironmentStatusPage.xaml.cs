@@ -19,8 +19,8 @@ public partial class EnvironmentStatusPage : ContentPage
 			{
 				{"status", status}
 			};
-
-			await Shell.Current.GoToAsync("StatusDetails", navParams);
+			
+            await Shell.Current.GoToAsync("StatusDetails", navParams);
 		}
 
 		//clear selected item

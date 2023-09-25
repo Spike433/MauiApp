@@ -14,6 +14,8 @@ public partial class StatusDetails : ContentPage, IQueryAttributable, INotifyPro
 		InitializeComponent();
 		BindingContext = this;
 
+        Shell.SetTabBarIsVisible(this, false);
+
         Random random = new Random();
         int randomNumber = random.Next(20, 26); // Generates numbers from 17 to 25 (inclusive)
 
