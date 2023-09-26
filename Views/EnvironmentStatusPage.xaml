@@ -67,7 +67,6 @@
                         <Label Text="{Binding AirHumidity}"
                            FontSize="Default"
                            Margin="50,0,0,0"
-                               TextColor="white"
                            FontAttributes="Italic"
                            FontFamily="Open-Sans"
                            Grid.Column="1" />
