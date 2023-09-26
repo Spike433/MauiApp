@@ -9,6 +9,9 @@
 
     <TabBar>
         <Tab Title="Home" Icon="tab_home.svg">  
+            <ShellContent Title="Statuses" ContentTemplate="{DataTemplate views:Home}"/>
+        </Tab>
+        <Tab Title="Statuses" Icon="tab_map.png">
             <ShellContent Title="Statuses" ContentTemplate="{DataTemplate views:EnvironmentStatusPage}"/>
         </Tab>
         <Tab Title="Settings" Icon="tab_settings.svg">

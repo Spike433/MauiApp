@@ -16,14 +16,16 @@
         <Label Text="Timestamp"
            FontAttributes="Bold"
            FontSize="Default"
+               TextColor="#fff"
            Margin="0,4,0,0"
            FontFamily="Open-Sans"
            HorizontalOptions="Center" />
 
         <!-- Label for "Air Humidity" in the second column -->
         <Label Text="Air Humidity"
+               TextColor="White"
            FontAttributes="Bold"
-           FontSize="Default"
+           FontSize="15"
            Margin="0,4,0,0"
            FontFamily="Open-Sans"
            HorizontalOptions="Center"
