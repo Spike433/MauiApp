@@ -4,7 +4,6 @@
              x:Class="AirApp.Resources.Styles.DefaultTheme">
     <Color x:Key="Primary">#7d3fb5</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
     <Color x:Key="Neutral">#969696</Color>
     <Color x:Key="NeutralLighter">#E5E5E1</Color>
     <Color x:Key="NeutralDarker">#505050</Color>
