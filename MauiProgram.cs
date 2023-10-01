@@ -1,5 +1,6 @@
 ﻿using Microcharts.Maui;
 using Microsoft.Extensions.Logging;
+using Controls.UserDialogs.Maui;
 
 namespace AirApp
 {
@@ -10,6 +11,15 @@ namespace AirApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                 .UseUserDialogs(() =>
+                 {
+                     //setup your default styles for dialogs
+                     AlertConfig.DefaultBackgroundColor = Colors.Purple;
+
+                     AlertConfig.DefaultMessageFontFamily = "OpenSans-Regular";
+
+                     ToastConfig.DefaultCornerRadius = 15;
+                 })
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

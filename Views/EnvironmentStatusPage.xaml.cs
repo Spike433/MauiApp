@@ -1,4 +1,5 @@
 using AirApp.Models;
+using Controls.UserDialogs.Maui;
 
 namespace AirApp.Views;
 
@@ -6,13 +7,13 @@ public partial class EnvironmentStatusPage : ContentPage
 {
 	public EnvironmentStatusPage()
 	{
-        InitializeComponent();
-		BindingContext = new Models.AllEnvironmentStatuses();
-	}
+        InitializeComponent();        
+        BindingContext = new Models.AllEnvironmentStatuses();
+    }
 
     private async void environmentCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-		if(e.CurrentSelection.Count != 0)
+        if (e.CurrentSelection.Count != 0)
 		{
 			var status = e.CurrentSelection.FirstOrDefault() as EnvironmentStatus;
 			var navParams = new Dictionary<string, object>()
@@ -25,5 +26,6 @@ public partial class EnvironmentStatusPage : ContentPage
 
 		//clear selected item
         environmentStatusesCollection.SelectedItem = null;
+
     }    
 }

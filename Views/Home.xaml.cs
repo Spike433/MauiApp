@@ -1,3 +1,4 @@
+using Controls.UserDialogs.Maui;
 using Microcharts;
 using SkiaSharp;
 
@@ -34,5 +35,5 @@ public partial class Home : ContentPage
             BackgroundColor = SKColor.Parse("#424242"),
             LabelColor = SKColor.Parse("#3498db"),                        
         };
-	}	
+    }
 }

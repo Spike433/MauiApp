@@ -1,4 +1,6 @@
 ﻿using AirApp.Services;
+using Android.App;
+using Controls.UserDialogs.Maui;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,6 +21,8 @@ namespace AirApp.Models
 
         public async void LoadStatuses()
         {
+            UserDialogs.Instance.Loading("Loading...");
+
             var repository = new EnvironmentStatusService();
             var statuses = await repository.LoadEnvironmentStatuses();
 
@@ -26,6 +30,8 @@ namespace AirApp.Models
             {
                 EnvironmentStatuses.Add(status);
             }
+
+            UserDialogs.Instance.HideHud();
         }
     }
 }
