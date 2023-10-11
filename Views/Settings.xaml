@@ -3,5 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AirApp.Views.Settings"
              Title="Settings">
-    
+
+    <Grid Margin="14">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <!-- Additional rows if necessary -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <!-- Additional columns if necessary -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Label for "Sort by" in the first row, first column -->
+        <Label Text="Sort by Humidity:" HorizontalOptions="Start" FontSize="20" TextColor="WhiteSmoke" Grid.Row="0" Grid.Column="0" />
+
+        <!-- Switch in the first row, third column -->
+        <Switch x:Name="sortToggle" Toggled="OnSortToggled" ThumbColor="WhiteSmoke" Grid.Row="0" Grid.Column="2" />
+
+        <!-- Label for "Start Date/Time" in the second row, first column -->
+        <Label Text="Start Filter Date" Grid.Row="1" Grid.Column="0" FontSize="20" TextColor="WhiteSmoke"/>
+
+        <!-- DatePicker for Start Date/Time in the second row, second column -->
+        <DatePicker x:Name="startDatePicker" Grid.Row="1" Grid.Column="2" TextColor="WhiteSmoke" FontSize="20"/>
+
+        <!-- Label for "End Date/Time" in the third row, first column -->
+        <Label Text="End Filter Date" Grid.Row="2" Grid.Column="0" FontSize="20" TextColor="WhiteSmoke"/>
+
+        <!-- DatePicker for End Date/Time in the third row, second column -->
+        <DatePicker x:Name="endDatePicker" Grid.Row="2" Grid.Column="2" FontSize="20" TextColor="WhiteSmoke"/>
+
+        <!-- Button for applying filters in the fourth row, second column -->
+        <Button Text="Apply Changes" Clicked="OnApplyFiltersClicked" Grid.Row="5" Grid.Column="2" />
+    </Grid>
+
+
+
 </ContentPage>

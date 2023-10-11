@@ -14,15 +14,15 @@
         <!-- Label for "Timestamp" in the first column -->
         <Label Text="Timestamp"
            FontAttributes="Bold"
-           FontSize="19"
-           TextColor="#fff"               
+           FontSize="20"
+           TextColor="WhiteSmoke"
            Margin="0,4,0,0"
            FontFamily="Open-Sans"
            HorizontalOptions="Center" />
 
         <!-- Label for "Air Humidity" in the second column -->
         <Label Text="Air Humidity"
-           TextColor="White"
+           TextColor="WhiteSmoke"
            FontAttributes="Bold"
            FontSize="19"
            Margin="0,4,0,0"

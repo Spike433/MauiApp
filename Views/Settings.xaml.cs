@@ -6,4 +6,14 @@ public partial class Settings : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void OnSortToggled(object sender, ToggledEventArgs e)
+    {
+		bool isSorted = e.Value;
+    }
+
+    private void OnApplyFiltersClicked(object sender, EventArgs e)
+    {
+
+    }
 }
