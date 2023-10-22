@@ -8,7 +8,6 @@ public partial class EnvironmentStatusPage : ContentPage
 	public EnvironmentStatusPage()
 	{
         InitializeComponent();
-        BindingContext = new Models.AllEnvironmentStatuses();
     }
 
     private async void environmentCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -27,5 +26,20 @@ public partial class EnvironmentStatusPage : ContentPage
 		//clear selected item
         environmentStatusesCollection.SelectedItem = null;
 
-    }    
+    }
+
+    protected override void OnDisappearing()
+    {
+        // Clear the binding context when the page is disappearing
+        BindingContext = null;
+        base.OnDisappearing();
+    }
+
+    protected override void OnAppearing()
+    {
+        BindingContext = new Models.AllEnvironmentStatuses();
+
+        base.OnAppearing();
+    }
+
 }

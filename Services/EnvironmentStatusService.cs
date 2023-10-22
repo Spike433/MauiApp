@@ -65,7 +65,18 @@ namespace AirApp.Services
         {
             var statuses = new ObservableCollection<EnvironmentStatus>();
 
-            Uri uri = new Uri(string.Format($"{BASE_URL}EnvironmentStatus", string.Empty));
+            var result = string.Format($"{BASE_URL}EnvironmentStatus", string.Empty);
+            if (Temp.SortOnHumidity.HasValue && Temp.SortOnHumidity.Value)
+            {
+                result += "?Sorts=AirHumidity";
+            }
+            else if(Temp.SortOnHumidity.HasValue && !Temp.SortOnHumidity.Value)
+            {
+                result += "?Sorts=-AirHumidity";
+            }
+
+            Uri uri = new Uri(result);
+
             try
             {
                 HttpResponseMessage response = await client.GetAsync(uri);

@@ -33,9 +33,9 @@
         <!-- CollectionView below the labels -->
         <CollectionView x:Name="environmentStatusesCollection"
                     Grid.Row="1"
-                    Margin="0,10,0,0"
+                    Margin="0,30,0,0"
                     Grid.ColumnSpan="2" 
-            ItemsSource="{Binding EnvironmentStatuses}" 
+                    ItemsSource="{Binding EnvironmentStatuses}" 
                     SelectionMode="Single"
                     SelectionChanged="environmentCollection_SelectionChanged">
             <CollectionView.ItemsLayout>
@@ -43,7 +43,7 @@
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>                    
+                <DataTemplate>
                     <Grid Margin="60,20,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
