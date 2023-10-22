@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace AirApp.Models
 {
-    internal class Temp
+    public static class Temp
     {
+        public static  string humidity { get; set; } = "";
+        public static DateTime Start { get; set; }
+        public static DateTime End { get; set; }
     }
 }

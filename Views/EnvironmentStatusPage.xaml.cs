@@ -7,7 +7,7 @@ public partial class EnvironmentStatusPage : ContentPage
 {
 	public EnvironmentStatusPage()
 	{
-        InitializeComponent();        
+        InitializeComponent();
         BindingContext = new Models.AllEnvironmentStatuses();
     }
 
