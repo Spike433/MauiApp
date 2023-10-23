@@ -14,6 +14,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             
             <!-- Additional rows if necessary -->
         </Grid.RowDefinitions>
@@ -47,5 +50,7 @@
 
         <!-- Button for applying filters in the fourth row, second column -->
         <Button Text="Apply Changes" Clicked="OnApplyFiltersClicked" Grid.Row="8" Grid.Column="2" Margin="0,10,0,0"/>
+
+        <Image x:Name="qr" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" HeightRequest="350"/>
     </Grid>
 </ContentPage>

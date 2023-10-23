@@ -29,6 +29,7 @@ namespace AirApp.Models
             foreach (var status in statuses) 
             {
                 EnvironmentStatuses.Add(status);
+                Temp.EnvironmentStatuses.Add(status);
             }
 
             UserDialogs.Instance.HideHud();
