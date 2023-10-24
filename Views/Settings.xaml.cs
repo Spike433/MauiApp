@@ -39,29 +39,33 @@ public partial class Settings : ContentPage
         //    await Console.Out.WriteLineAsync("Error");
         //}
 
-        //string BASE_URL = "https://losy-backend-dev-b1-plan.azurewebsites.net/api/";
-        //var result = string.Format($"{BASE_URL}/QrCode/1?lockerName=3" +
-        //    $"&reservationStart=2023-10-24" +
-        //    $"&reservationEnd=2023-10-26" +
-        //    $"&userId=123", string.Empty);
+        string BASE_URL = "https://losy-backend-dev-b1-plan.azurewebsites.net/api/";
+        var result = string.Format($"{BASE_URL}/QrCode/1?lockerName=3" +
+            $"&reservationStart=2023-10-28" +
+            $"&reservationEnd=2023-10-29" +
+            $"&userId=123", string.Empty);
 
-        //Uri uri = new Uri(result);
-        //var client = new HttpClient();
-        
-        //try
-        //{
-        //    HttpResponseMessage response = await client.GetAsync(result);
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        Stream imageStream = await response.Content.ReadAsStreamAsync();
+        Uri uri = new Uri(result);
+        var client = new HttpClient();
 
-        //        var imageSource = ImageSource.FromStream(() => imageStream);
-        //        qr.Source = imageSource;
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    Console.WriteLine(ex.Message);
-        //}
+        try
+        {
+            HttpResponseMessage response = await client.GetAsync(result);
+            if (response.IsSuccessStatusCode)
+            {
+                Stream imageStream = await response.Content.ReadAsStreamAsync();
+
+                var imageSource = ImageSource.FromStream(() => imageStream);
+                qr.Source = imageSource;
+            }
+            else if(response.StatusCode == HttpStatusCode.BadRequest) 
+            {
+                await Console.Out.WriteLineAsync(response.Content.ToString());
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

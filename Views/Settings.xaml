@@ -51,6 +51,6 @@
         <!-- Button for applying filters in the fourth row, second column -->
         <Button Text="Apply Changes" Clicked="OnApplyFiltersClicked" Grid.Row="8" Grid.Column="2" Margin="0,10,0,0"/>
 
-        <Image x:Name="qr" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" HeightRequest="350"/>
+        <Image x:Name="qr" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" HeightRequest="250" Margin="0,100,0,0"/>
     </Grid>
 </ContentPage>
