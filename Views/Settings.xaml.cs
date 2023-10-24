@@ -1,4 +1,5 @@
 using AirApp.Models;
+using Controls.UserDialogs.Maui;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Net;
@@ -22,10 +23,6 @@ public partial class Settings : ContentPage
 
     private async void OnApplyFiltersClicked(object sender, EventArgs e)
     {
-        Temp.Start = startDatePicker.Date;
-        Temp.End = endDatePicker.Date;
-
-
         //try
         //{
         //    System.Net.WebRequest request =
@@ -39,11 +36,20 @@ public partial class Settings : ContentPage
         //    await Console.Out.WriteLineAsync("Error");
         //}
 
+        DateTime startTDate = startDatePicker.Date + startTimePicker.Time;
+        DateTime endTDate = endDatePicker.Date + endTimePicker.Time;
+
+        var startUtc = startTDate.ToUniversalTime();
+        var endUtc = endTDate.ToUniversalTime();
+
+        // Combine the date and time to create a single DateTime
+        
+
         string BASE_URL = "https://losy-backend-dev-b1-plan.azurewebsites.net/api/";
         var result = string.Format($"{BASE_URL}/QrCode/1?lockerName=3" +
-            $"&reservationStart=2023-10-28" +
-            $"&reservationEnd=2023-10-29" +
-            $"&userId=123", string.Empty);
+            $"&reservationStart={startUtc.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")}" +
+            $"&reservationEnd={endUtc.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")}" +
+            $"&userId=0", string.Empty);
 
         Uri uri = new Uri(result);
         var client = new HttpClient();
@@ -60,7 +66,12 @@ public partial class Settings : ContentPage
             }
             else if(response.StatusCode == HttpStatusCode.BadRequest) 
             {
-                await Console.Out.WriteLineAsync(response.Content.ToString());
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                await Console.Out.WriteLineAsync(errorMessage);
+
+                // Display the error message to the user.
+                UserDialogs.Instance.Alert(errorMessage);
+
             }
         }
         catch (Exception ex)
