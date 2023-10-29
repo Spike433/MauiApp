@@ -1,5 +1,4 @@
 ﻿using AirApp.Services;
-using Android.App;
 using Controls.UserDialogs.Maui;
 using System;
 using System.Collections.Generic;
