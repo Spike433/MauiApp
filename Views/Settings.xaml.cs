@@ -25,11 +25,14 @@ public partial class Settings : ContentPage
         var startUtc = startTDate.ToUniversalTime();
         var endUtc = endTDate.ToUniversalTime();
 
-        // Combine the date and time to create a single DateTime
-
+        if (!int.TryParse(serial.Text, out int serialNumber) || !int.TryParse(locker.Text, out int lockerNumber))
+        {
+            UserDialogs.Instance.Alert("Input is not a number.");
+            return;
+        }
 
         string BASE_URL = "https://losy-backend-dev-b1-plan.azurewebsites.net/api/";
-        var result = string.Format($"{BASE_URL}/QrCode/1?lockerName=3" +
+        var result = string.Format($"{BASE_URL}/QrCode/{serialNumber}?lockerName={lockerNumber}" +
             $"&reservationStart={startUtc.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")}" +
             $"&reservationEnd={endUtc.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")}" +
             $"&userId=0", string.Empty);
