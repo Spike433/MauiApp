@@ -31,6 +31,7 @@ public partial class Home : ContentPage
     {
         Random random = new Random();
         entries.Clear();
+        line.Clear();
         var current = new DateTime(2023, 6, 1);
 
         for (int value = 0; value <= 7; value++)

@@ -1,5 +1,6 @@
 using AirApp.Models;
 using Controls.UserDialogs.Maui;
+using Microsoft.Maui.Controls;
 using System.Net;
 
 namespace AirApp.Views;
@@ -8,14 +9,16 @@ public partial class Settings : ContentPage
 {
 	public Settings()
 	{
-		InitializeComponent();
-	}
+		InitializeComponent();        
+    }
 
     private void OnSortToggled(object sender, ToggledEventArgs e)
     {
 		bool sortValue = e.Value;
         Temp.SortOnHumidity = sortValue;
     }
+
+    private ImageSource qrImageSource;
 
     private async void OnApplyFiltersClicked(object sender, EventArgs e)
     {
@@ -45,10 +48,11 @@ public partial class Settings : ContentPage
             HttpResponseMessage response = await client.GetAsync(result);
             if (response.IsSuccessStatusCode)
             {
-                Stream imageStream = await response.Content.ReadAsStreamAsync();
+                var imageStream = await response.Content.ReadAsStreamAsync();
 
-                var imageSource = ImageSource.FromStream(() => imageStream);
-                qr.Source = imageSource;
+                // Create an ImageSource from the stream and set it to the qrImageSource.
+                qrImageSource = ImageSource.FromStream(() => imageStream);
+                qr.Source = qrImageSource;
             }
             else if (response.StatusCode == HttpStatusCode.BadRequest)
             {
@@ -63,6 +67,17 @@ public partial class Settings : ContentPage
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+        }
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        // Check if qrImageSource is not null before setting the source to qr.
+        if (qrImageSource != null)
+        {
+            qr.Source = qrImageSource;
         }
     }
 }
