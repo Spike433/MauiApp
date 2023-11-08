@@ -27,7 +27,7 @@ public partial class Settings : ContentPage
 
         if (!int.TryParse(serial.Text, out int serialNumber) || !int.TryParse(locker.Text, out int lockerNumber))
         {
-            UserDialogs.Instance.Alert("Input is not a number.");
+            UserDialogs.Instance.Alert("Serial Or Locker Number is not a number.");
             return;
         }
 

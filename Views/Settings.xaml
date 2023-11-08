@@ -35,10 +35,12 @@
                 HorizontalOptions="Start" Margin="0,-10,0,0"/>
         
         <Label Text="Serial number" Grid.Row="2" Grid.Column="0" FontSize="17" TextColor="WhiteSmoke"/>
-        <Entry x:Name="serial" Grid.Row="2" Grid.Column="2" Placeholder="Insert module number" Keyboard="Numeric" />
+        <Entry x:Name="serial" Grid.Row="2" Grid.Column="2" Placeholder="Insert module number" Keyboard="Numeric" 
+               TextColor="White"/>
         
         <Label Text="Locker  number" Grid.Row="3" Grid.Column="0" FontSize="17" TextColor="WhiteSmoke"/>
-        <Entry x:Name="locker" Grid.Row="3" Grid.Column="2" Placeholder="Insert locker number" Keyboard="Numeric" />
+        <Entry x:Name="locker" Grid.Row="3" Grid.Column="2" Placeholder="Insert locker number" Keyboard="Numeric" 
+               TextColor="White"/>
         
         <!-- Label for "Start Date/Time" in the second row, first column -->
         <Label Text="Reservation Start" Grid.Row="4" Grid.Column="0" FontSize="17" TextColor="WhiteSmoke"/>
@@ -57,6 +59,6 @@
         <!-- Button for applying filters in the fourth row, second column -->
         <Button Text="Send Reservation" Clicked="OnApplyFiltersClicked" Grid.Row="8" Grid.Column="2" Margin="0,10,0,0"/>
 
-        <Image x:Name="qr" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" HeightRequest="220" Margin="0,100,0,0"/>
+        <Image x:Name="qr" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" HeightRequest="220" Margin="0,80,0,0"/>
     </Grid>
 </ContentPage>
