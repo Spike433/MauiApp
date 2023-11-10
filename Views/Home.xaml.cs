@@ -37,22 +37,22 @@ public partial class Home : ContentPage
         for (int value = 0; value <= 7; value++)
         {
             int randomValue = random.Next(18,25);
-            int randomPressure = random.Next(10,50);
+            int randomHumidity = random.Next(10,50);
             int randomColor = random.Next(0,palette.Length-1);
             var randomPickColor = palette.Length - 1 - randomColor;
 
             ChartEntry entry = new ChartEntry(randomValue)
             {
                 Label = current.ToString("dd/MM"),
-                ValueLabel = randomValue.ToString()+"%",
+                ValueLabel = randomValue.ToString()+ "°C",
                 Color = palette[randomPickColor], // Use a color from the palette based on the value
                 ValueLabelColor = palette[randomPickColor], // Use the same color for the value label
             };
 
-            var pressure = new ChartEntry(randomPressure)
+            var pressure = new ChartEntry(randomHumidity)
             {
                 Label = current.ToString("dd/MM"),
-                ValueLabel = randomPressure.ToString(),
+                ValueLabel = randomHumidity.ToString()+"%",
                 Color = palette[randomPickColor], // Use a color from the palette based on the value
                 ValueLabelColor = palette[randomPickColor], // Use the same color for the value label
             };
@@ -67,7 +67,7 @@ public partial class Home : ContentPage
         {
             Entries = entries,
             ValueLabelOrientation = Orientation.Horizontal,
-            LabelTextSize = 50,
+            LabelTextSize = 40,
             BackgroundColor = SKColor.Parse("#424242"),
             LabelColor = SKColor.Parse("#3498db"),
         };
@@ -76,7 +76,7 @@ public partial class Home : ContentPage
         {
             ValueLabelOrientation = Orientation.Horizontal,
             Entries = line,
-            LabelTextSize = 50,
+            LabelTextSize = 40,
             BackgroundColor = SKColor.Parse("#424242"),
             LabelColor = SKColor.Parse("#3498db"),
         };

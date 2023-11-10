@@ -6,7 +6,7 @@
              
              Title="Home">
     <VerticalStackLayout>
-        <microcharts:ChartView x:Name="myChart" HeightRequest="300" Margin="15"/>
-        <microcharts:ChartView x:Name="lineChart" HeightRequest="300" Margin="15"/>
+        <microcharts:ChartView x:Name="myChart" HeightRequest="300" Margin="13"/>
+        <microcharts:ChartView x:Name="lineChart" HeightRequest="300" Margin="13"/>
     </VerticalStackLayout>
 </ContentPage>
